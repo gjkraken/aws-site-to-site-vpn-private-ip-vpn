@@ -1,9 +1,5 @@
-# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
-# SPDX-License-Identifier: MIT-0
-
 # --- root/main.tf ---
 
-# AWS SITE-TO-SITE VPN PRIVATE IP VPN WALKTHROUGH
 # Step 1: Creation of the Direct Connect gateway
 resource "aws_dx_gateway" "dxgw" {
   count = var.dxgw_id == "" ? 1 : 0
@@ -85,9 +81,9 @@ module "vpcs" {
 
   subnets = {
     private = {
-      name_prefix  = "private"
-      cidrs        = slice(each.value.private_subnets, 0, each.value.number_azs)
-      route_to_nat = false
+      name_prefix              = "private"
+      cidrs                    = slice(each.value.private_subnets, 0, each.value.number_azs)
+      route_to_nat             = false
       route_to_transit_gateway = ["0.0.0.0/0"]
     }
     transit_gateway = {

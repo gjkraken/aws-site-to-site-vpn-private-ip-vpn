@@ -1,6 +1,3 @@
-# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
-# SPDX-License-Identifier: MIT-0
-
 # --- root/variables.tf ---
 
 # Project Identifier
@@ -8,7 +5,7 @@ variable "identifier" {
   type        = string
   description = "Project identifier. This value will be added to all the resources names."
 
-  default = "private-ip-vpn-example"
+  default = "tgw-dx-private-ip-vpn"
 }
 
 # AWS REGION
@@ -16,12 +13,12 @@ variable "aws_region" {
   type        = string
   description = "AWS Region to spin up the resources."
 
-  default = "us-west-1"
+  default = "eu-central-1"
 }
 
 # Direct Connect gateway ID
 variable "dxgw_id" {
-  type = string
+  type        = string
   description = "ID of the Direct Connect gateway to use for the Private IP VPN connection creation. If no ID is defined, this repository will create one."
 
   default = ""
@@ -49,7 +46,7 @@ variable "tgw_cidr_blocks" {
   description = "Transit Gateway CIDR blocks."
 
   default = [
-    "10.0.0.0/24"
+    "10.66.2.0/24"
   ]
 }
 
@@ -59,7 +56,7 @@ variable "dxgw_allowed_prefixes" {
   description = "Allowed prefixes. This value is indicated when the Direct Connect gateway is associated to the Transit Gateway. The list of prefixes specified here are the CIDR announcements to on premises."
 
   default = [
-    "10.0.0.0/8"
+    "10.66.0.0/16"
   ]
 
 }
@@ -69,6 +66,6 @@ variable "customer_gateway_ip" {
   type        = string
   description = "IPv4 private address of your Customer gateway (CGW)."
 
-  default = "10.0.0.1"
+  default = "10.66.7.2"
 }
 

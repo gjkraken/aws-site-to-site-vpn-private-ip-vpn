@@ -1,6 +1,3 @@
-# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
-# SPDX-License-Identifier: MIT-0
-
 # --- root/providers.tf ---
 
 terraform {
@@ -18,6 +15,16 @@ terraform {
 
 provider "aws" {
   region = var.aws_region
+
+  default_tags {
+    tags = {
+      Project = var.identifier
+      Owner   = "gj"
+      IaC     = "terraform"
+    }
+
+  }
+
 }
 
 provider "awscc" {

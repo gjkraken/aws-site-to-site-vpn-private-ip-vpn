@@ -8,9 +8,9 @@ locals {
 
   spoke_vpcs = {
     spoke-vpc-a = {
-      cidr_block      = "10.0.0.0/24"
-      private_subnets = ["10.0.0.0/26", "10.0.0.64/26", "10.0.0.128/26"]
-      tgw_subnets     = ["10.0.0.192/28", "10.0.0.208/28", "10.0.0.224/28"]
+      cidr_block      = "10.66.4.0/24"
+      private_subnets = ["10.66.4.0/26", "10.66.4.64/26", "10.66.4.128/26"]
+      tgw_subnets     = ["10.66.4.192/28", "10.66.4.208/28", "10.66.4.224/28"]
       number_azs      = 1
       instance_type   = "t2.micro"
       # VPC Flow log type / Default: ALL - Other options: ACCEPT, REJECT
@@ -20,9 +20,9 @@ locals {
       }
     }
     spoke-vpc-b = {
-      cidr_block      = "10.0.1.0/24"
-      private_subnets = ["10.0.1.0/26", "10.0.1.64/26", "10.0.1.128/26"]
-      tgw_subnets     = ["10.0.1.192/28", "10.0.1.208/28", "10.0.1.224/28"]
+      cidr_block      = "10.66.5.0/24"
+      private_subnets = ["10.66.5.0/26", "10.66.5.64/26", "10.66.5.128/26"]
+      tgw_subnets     = ["10.66.5.192/28", "10.66.5.208/28", "10.66.5.224/28"]
       number_azs      = 1
       instance_type   = "t2.micro"
       flow_log_config = {
